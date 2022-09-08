@@ -51,9 +51,9 @@
 													// dd($photo);
 													@endphp
 													@foreach($photo as $data)
-														<li  data-thumb="{{$data}}" rel="adjustX:10, adjustY:"> 
-															<a class="lightbox"  href="{{$data}}" alt="{{$data}}">
-																<img src="{{$data}}" alt="{{$data}}"></a>
+														<li  data-thumb="{{asset($data)}}" rel="adjustX:10, adjustY:"> 
+															<a class="lightbox"  href="{{asset($data)}}" alt="{{$data}}">
+																<img src="{{asset($data)}}" alt="{{$data}}"></a>
 														</li> 
 													@endforeach
 												</div>
@@ -259,7 +259,7 @@
 																	<div class="single-rating">
 																		<div class="rating-author">
 																			@if($data->user_info['photo'])
-																			<img src="{{$data->user_info['photo']}}" alt="{{$data->user_info['photo']}}">
+																			<img src="{{asset($data->user_info['photo'])}}" alt="{{$data->user_info['photo']}}">
 																			@else 
 																			<img src="{{asset('backend/img/avatar.png')}}" alt="Profile.jpg">
 																			@endif
@@ -326,8 +326,8 @@
 											@php 
 												$photo=explode(',',$data->photo);
 											@endphp
-                                            <img class="default-img" src="{{$photo[0]}}" alt="{{$photo[0]}}">
-                                            <img class="hover-img" src="{{$photo[0]}}" alt="{{$photo[0]}}">
+                                            <img class="default-img" src="{{asset($photo[0])}}" alt="{{$photo[0]}}">
+                                            <img class="hover-img" src="{{asset($photo[0])}}" alt="{{$photo[0]}}">
                                             <span class="price-dec">{{$data->discount}} % Off</span>
                                                                     {{-- <span class="out-of-stock">Hot</span> --}}
                                         </a>
